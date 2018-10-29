@@ -1,0 +1,5 @@
+coca;Coca-Cola;3;3;
+fantal;Fanta Limon;9;9;
+fantaN;Fanta Naranja;4;4;
+sprite;Sprite;0;0;
+text;Fichero Texto;1;1;
