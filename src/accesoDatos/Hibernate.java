@@ -71,7 +71,15 @@ public class Hibernate implements I_Acceso_Datos {
 	@Override
 	public boolean guardarDispensadores(HashMap<String, Dispensador> dispensadores) {
 		// TODO Auto-generated method stub
-		return false;
+		session.beginTransaction();
+		for(Map.Entry<String, Dispensador> entry : dispensadores.entrySet()) {
+			
+			session.saveOrUpdate(entry.getValue());
+			
+			 
+		}
+		session.getTransaction().commit();
+		return true;
 	}
 
 }
