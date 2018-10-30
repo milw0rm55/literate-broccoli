@@ -1,8 +1,10 @@
 package accesoDatos;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -55,7 +57,15 @@ public class Hibernate implements I_Acceso_Datos {
 	@Override
 	public boolean guardarDepositos(HashMap<Integer, Deposito> depositos) {
 		// TODO Auto-generated method stub
-		return false;
+		session.beginTransaction();
+		for(Map.Entry<Integer, Deposito> entry : depositos.entrySet()) {
+			
+			session.saveOrUpdate(entry.getValue());
+			
+			 
+		}
+		session.getTransaction().commit();
+		return true;
 	}
 
 	@Override
